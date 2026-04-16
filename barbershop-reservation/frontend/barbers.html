@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Barbers - Classic Barbershop</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .barbers-section {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .barbers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .barber-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .barber-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .barber-image {
+            height: 250px;
+            background: linear-gradient(45deg, #1a1a1a, #333);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+        }
+
+        .barber-info {
+            padding: 2rem;
+        }
+
+        .barber-info h3 {
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .barber-specialty {
+            color: #d4af37;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .barber-experience {
+            color: #666;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .barber-bio {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .book-barber {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 10px;
+        }
+
+        .book-btn {
+            flex: 1;
+            text-align: center;
+            padding: 0.8rem;
+            background: #1a1a1a;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .book-btn:hover {
+            background: #d4af37;
+            color: #1a1a1a;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            color: #d4af37;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-cut"></i>
+                <span>Classic Barbershop</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="barbers.html" class="active">Our Barbers</a></li>
+                <li><a href="reservation.html">Reservation</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="barbers-section">
+        <div class="container">
+            <h1 class="section-title">Meet Our Master Barbers</h1>
+            <p style="text-align: center; margin-bottom: 2rem; font-size: 1.2rem; color: #666;">
+                Our team of skilled professionals brings years of experience and passion to every cut.
+            </p>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Years Combined Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5000+</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Expert Barbers</div>
+                </div>
+            </div>
+            
+            <div class="barbers-grid" id="barbers-container">
+                <!-- Barbers will be loaded by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <script src="barbers.js"></script>
+</body>
+</html>

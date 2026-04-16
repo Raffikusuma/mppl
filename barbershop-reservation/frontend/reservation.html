@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Reservation - Classic Barbershop</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .reservation-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #1a1a1a;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #d4af37;
+            outline: none;
+        }
+
+        .time-slots {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .time-slot {
+            padding: 0.5rem;
+            text-align: center;
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .time-slot:hover {
+            background: #e9ecef;
+        }
+
+        .time-slot.selected {
+            background: #d4af37;
+            color: white;
+            border-color: #d4af37;
+        }
+
+        .alert {
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .alert.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .alert.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation (sama seperti index.html) -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-cut"></i>
+                <span>Classic Barbershop</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="barbers.html">Our Barbers</a></li>
+                <li><a href="reservation.html" class="active">Reservation</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="reservation-container">
+            <h1 style="text-align: center; margin-bottom: 2rem;">
+                <i class="fas fa-calendar-alt"></i> Book Your Appointment
+            </h1>
+            
+            <div id="message" class="alert"></div>
+            
+            <form id="reservationForm">
+                <div class="form-group">
+                    <label for="name"><i class="fas fa-user"></i> Full Name *</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone"><i class="fas fa-phone"></i> Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="0812-3456-7890">
+                </div>
+
+                <div class="form-group">
+                    <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="your.email@example.com">
+                </div>
+
+                    <div class="form-group">
+    <label for="service"><i class="fas fa-cut"></i> Select Service *</label>
+    <select id="service" name="service" required>
+        <option value="">Choose a service</option>
+        <!-- Services akan diload oleh JavaScript -->
+    </select>
+</div>
+
+                <div class="form-group">
+                    <label for="service"><i class="fas fa-cut"></i> Select Service *</label>
+                    <select id="service" name="service" required>
+                        <option value="">Choose a service</option>
+                        <!-- Services will be loaded by JavaScript -->
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="date"><i class="fas fa-calendar-day"></i> Select Date *</label>
+                    <input type="date" id="date" name="date" required min="${new Date().toISOString().split('T')[0]}">
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fas fa-clock"></i> Select Time Slot *</label>
+                    <div class="time-slots" id="timeSlots">
+                        <!-- Time slots will be generated by JavaScript -->
+                    </div>
+                    <input type="hidden" id="time" name="time" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes"><i class="fas fa-sticky-note"></i> Additional Notes</label>
+                    <textarea id="notes" name="notes" rows="3" placeholder="Any special requests or notes..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem;">
+                    <i class="fas fa-paper-plane"></i> Confirm Reservation
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="reservation.js"></script>
+</body>
+</html>
